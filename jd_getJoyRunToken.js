@@ -20,7 +20,7 @@ http-request ^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/ge
 */
 const $ = new Env('宠汪汪助力获取Token');
 getToken()
-async function getToken() {
+function getToken() {
   const url = $request.url;
   $.log(`${$.name}url\n${url}\n`)
   if (isURL(url, /^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/getCouponList?)) {

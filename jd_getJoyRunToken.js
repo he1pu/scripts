@@ -21,22 +21,29 @@ http-request ^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/ge
 const $ = new Env('宠汪汪助力获取Token');
 getToken()
 function getToken() {
-  const url = $request.url;
-  $.log(`${$.name}url\n${url}\n`)
-  if (isURL(url, /^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/getCouponList?)) {
-    const headers = JSON.parse($request.headers);
-    const LKYLToken = (headers['LKYLToken'] || '');
-    if (LKYLToken.length) {
-      $.log(`${$.name} 宠汪汪助力获取Token\n${LKYLToken}\n`);
-      $.msg($.name, `宠汪汪助力获取Token: 成功🎉\n${LKYLToken}`, ``);
-    $.done()
-  } else {
-    $.done()
+  try{
+    if ($request.headers && isURL($request.url, /^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/getCouponList/)) {
+      let LKYLToken = ($request.headers['LKYLToken'] || '');
+      if (LKYLToken.length) {
+        $.log(`${$.name}\n${LKYLToken}\n`);
+        $.msg($.name, `宠汪汪助力获取Token: 成功🎉\n${LKYLToken}`, `${LKYLToken}`);
+      }else {
+        $.log(`${$.name} *宠汪汪助力获取Token失败 ‼️\n`);
+        $.msg($.name, `**宠汪汪助力获取Token: 失败 ‼️\n`, ``);
+      }
+    }else {
+      $.log(`${$.name} ***宠汪汪助力获取Token失败 ‼️\n`);
+      $.msg($.name, `****宠汪汪助力获取Token: 失败 ‼️\n`, ``);
+    }
+
+  }catch(eor){
+    $.msg("获取Token失败", "", "未知错误 ‼️")
+    $.log(JSON.stringify(eor) + "\n" + eor + "\n" + JSON.stringify($request.headers))
   }
+  $.done()
 }
 
 function isURL(domain, reg) {
-  // const name = reg;
   return reg.test(domain);
 }
 // prettier-ignore

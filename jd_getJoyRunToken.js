@@ -19,7 +19,7 @@ hostname = draw.jdfcloud.com
 http-request ^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/silverBean? script-path=https://raw.githubusercontent.com/he1pu/scripts/main/jd_getJoyRunToken.js, timeout=3600, tag=宠汪汪助力获取Token
 */
 const $ = new Env('宠汪汪助力获取Token');
-
+getToken()
 async function getToken() {
   const url = $request.url;
   $.log(`${$.name}url\n${url}\n`)

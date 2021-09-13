@@ -9,14 +9,14 @@ token获取途径：
 hostname = draw.jdfcloud.com
 ===========Surge=================
 [Script]
-宠汪汪助力获取Token = type=http-request,pattern=^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/silverBean?, max-size=0, script-path=jd_joy_run.js
+宠汪汪助力获取Token = type=http-request,pattern=^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/silverBean?, max-size=0, script-path=https://raw.githubusercontent.com/he1pu/scripts/main/jd_getJoyRunToken.js
 ===================Quantumult X=====================
 [rewrite_local]
 # 宠汪汪助力获取Token
-^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/silverBean? url script-request-header jd_joy_run.js
+^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/silverBean? url script-request-header https://raw.githubusercontent.com/he1pu/scripts/main/jd_getJoyRunToken.js
 =====================Loon=====================
 [Script]
-http-request ^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/silverBean? script-path=jd_joy_run.js, timeout=3600, tag=宠汪汪助力获取Token
+http-request ^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/silverBean? script-path=https://raw.githubusercontent.com/he1pu/scripts/main/jd_getJoyRunToken.js, timeout=3600, tag=宠汪汪助力获取Token
 */
 const $ = new Env('宠汪汪助力获取Token');
 

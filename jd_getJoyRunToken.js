@@ -9,20 +9,20 @@ token获取途径：
 hostname = draw.jdfcloud.com
 ===========Surge=================
 [Script]
-宠汪汪助力获取Token = type=http-request,pattern=^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/getCouponList?, max-size=0, script-path=https://raw.githubusercontent.com/he1pu/scripts/main/jd_getJoyRunToken.js
+宠汪汪助力获取Token = type=http-request,pattern=^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/getJdBeanList?, max-size=0, script-path=https://raw.githubusercontent.com/he1pu/scripts/main/jd_getJoyRunToken.js
 ===================Quantumult X=====================
 [rewrite_local]
 # 宠汪汪助力获取Token
-^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/getCouponList? url script-request-header https://raw.githubusercontent.com/he1pu/scripts/main/jd_getJoyRunToken.js
+^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/getJdBeanList? url script-request-header https://raw.githubusercontent.com/he1pu/scripts/main/jd_getJoyRunToken.js
 =====================Loon=====================
 [Script]
-http-request ^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/getCouponList? script-path=https://raw.githubusercontent.com/he1pu/scripts/main/jd_getJoyRunToken.js, timeout=3600, tag=宠汪汪助力获取Token
+http-request ^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/getJdBeanList? script-path=https://raw.githubusercontent.com/he1pu/scripts/main/jd_getJoyRunToken.js, timeout=3600, tag=宠汪汪助力获取Token
 */
 const $ = new Env('宠汪汪助力获取Token');
 getToken()
 function getToken() {
   try{
-    if ($request.headers && isURL($request.url, /^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/getCouponList/)) {
+    if ($request.headers && isURL($request.url, /^https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/getJdBeanList/)) {
       let LKYLToken = ($request.headers['LKYLToken'] || '');
       if (LKYLToken.length) {
         $.log(`${$.name}\n${LKYLToken}\n`);
